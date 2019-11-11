@@ -13,7 +13,7 @@ if [ "$1" = 'new-plugin' ]; then
 fi
 
 if [ "$1" = 'elasticsearch' ]; then
-	set -- yarn es snapshot # --license oss # -E
+	set -- yarn es source --license oss # -E
 fi
 
 exec "$@"

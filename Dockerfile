@@ -28,8 +28,8 @@ RUN { \
 RUN ln -svT "/usr/lib/jvm/java-11-openjdk-$(dpkg --print-architecture)" /docker-java-home
 ENV JAVA_HOME /docker-java-home
 
-ENV JAVA_VERSION 11.0.3
-ENV JAVA_DEBIAN_VERSION 11.0.3+1-1~bpo9+1
+ENV JAVA_VERSION 11.0.5
+ENV JAVA_DEBIAN_VERSION 11.0.5+10-1~bpo9+1
 
 RUN set -ex; \
 	\
@@ -77,6 +77,9 @@ WORKDIR /plugin
 
 RUN echo "===> Cloning Kibana v$VERSION" \
 	&& git clone --depth 1 -b v${VERSION} https://github.com/elastic/kibana.git
+
+RUN echo "===> Cloning Elasticsearch v$VERSION" \
+	&& git clone --depth 1 -b v${VERSION} https://github.com/elastic/elasticsearch.git
 
 WORKDIR /plugin/kibana
 
